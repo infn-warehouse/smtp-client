@@ -292,7 +292,7 @@ exports.SMTPClient = class extends SMTPChannel {
       }
       else {
         lines = [];
-        source=`${source.replace(/^\./m,'..')}\r\n.\r\n`;
+        source=`${source.replace(/^\./mg,'..')}\r\n.\r\n`;
         let buf=Buffer.from(source, "binary");
         return this.write(buf, {timeout, handler});
       }
